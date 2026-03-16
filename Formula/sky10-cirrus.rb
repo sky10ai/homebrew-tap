@@ -18,27 +18,29 @@ class Sky10Cirrus < Formula
     cd "cirrus/macos" do
       system "xcodegen", "generate"
       system "xcodebuild",
-        "-project", "cirrus.xcodeproj",
-        "-scheme", "cirrus",
+        "-project", "Cirrus.xcodeproj",
+        "-scheme", "Cirrus",
         "-configuration", "Release",
         "-derivedDataPath", buildpath/"DerivedData",
         "CONFIGURATION_BUILD_DIR=#{buildpath}/Build",
         "CODE_SIGNING_ALLOWED=NO"
     end
 
-    prefix.install buildpath/"Build/cirrus.app"
+    prefix.install buildpath/"Build/Cirrus.app"
+  end
+
+  def post_install
+    # Symlink to /Applications so it shows up in Launchpad
+    target = Pathname("/Applications/Cirrus.app")
+    source = prefix/"Cirrus.app"
+    if source.exist? && !target.exist?
+      FileUtils.ln_sf(source, target)
+    end
   end
 
   def caveats
     <<~EOS
-      Cirrus.app has been installed to:
-        #{prefix}/cirrus.app
-
-      To open it:
-        open #{prefix}/cirrus.app
-
-      Or drag it to /Applications:
-        cp -R #{prefix}/cirrus.app /Applications/
+      Cirrus.app has been linked to /Applications.
 
       Note: Cirrus is unsigned. On first launch, right-click → Open
       to bypass Gatekeeper.
