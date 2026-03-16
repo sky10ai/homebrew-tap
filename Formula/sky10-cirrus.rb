@@ -1,20 +1,15 @@
 class Sky10Cirrus < Formula
-  desc "Encrypted file sync for macOS (builds from source)"
+  desc "Encrypted file sync for macOS"
   homepage "https://github.com/sky10ai/sky10"
   url "https://github.com/sky10ai/sky10.git", tag: "v0.3.0"
   license "MIT"
 
-  depends_on "go" => :build
+  depends_on "sky10ai/tap/sky10"
   depends_on "xcodegen" => :build
   depends_on xcode: ["16.0", :build]
   depends_on :macos
 
   def install
-    # Build the Go backend
-    system "make", "build"
-    bin.install "bin/sky10"
-
-    # Build the Swift app
     cd "cirrus/macos" do
       system "xcodegen", "generate"
       system "xcodebuild",
@@ -30,7 +25,6 @@ class Sky10Cirrus < Formula
   end
 
   def post_install
-    # Symlink to /Applications so it shows up in Launchpad
     target = Pathname("/Applications/Cirrus.app")
     source = prefix/"Cirrus.app"
     if source.exist? && !target.exist?
@@ -48,6 +42,6 @@ class Sky10Cirrus < Formula
   end
 
   test do
-    assert_match "sky10", shell_output("#{bin}/sky10 --version")
+    assert_match "sky10", shell_output("#{Formula["sky10"].bin}/sky10 --version")
   end
 end
