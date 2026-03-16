@@ -21,20 +21,20 @@ class Sky10Cirrus < Formula
         "CODE_SIGNING_ALLOWED=NO"
     end
 
+    # Install to the Cellar prefix
     prefix.install buildpath/"Build/Cirrus.app"
   end
 
   def post_install
-    target = Pathname("/Applications/Cirrus.app")
-    source = prefix/"Cirrus.app"
-    if source.exist? && !target.exist?
-      FileUtils.ln_sf(source, target)
-    end
+    # Copy (not symlink) to /Applications — post_install is unsandboxed
+    app_target = Pathname("/Applications/Cirrus.app")
+    app_target.rmtree if app_target.exist?
+    cp_r prefix/"Cirrus.app", app_target
   end
 
   def caveats
     <<~EOS
-      Cirrus.app has been linked to /Applications.
+      Cirrus.app has been installed to /Applications.
 
       Note: Cirrus is unsigned. On first launch, right-click → Open
       to bypass Gatekeeper.
@@ -42,6 +42,6 @@ class Sky10Cirrus < Formula
   end
 
   test do
-    assert_match "sky10", shell_output("#{Formula["sky10"].bin}/sky10 --version")
+    assert_predicate prefix/"Cirrus.app", :exist?
   end
 end
