@@ -21,20 +21,15 @@ class Sky10Cirrus < Formula
         "CODE_SIGNING_ALLOWED=NO"
     end
 
-    # Install to the Cellar prefix
     prefix.install buildpath/"Build/Cirrus.app"
-  end
-
-  def post_install
-    # Copy (not symlink) to /Applications — post_install is unsandboxed
-    app_target = Pathname("/Applications/Cirrus.app")
-    app_target.rmtree if app_target.exist?
-    cp_r prefix/"Cirrus.app", app_target
   end
 
   def caveats
     <<~EOS
-      Cirrus.app has been installed to /Applications.
+      Cirrus.app was built to: #{prefix}/Cirrus.app
+
+      To install to /Applications, run:
+        cp -R #{prefix}/Cirrus.app /Applications/
 
       Note: Cirrus is unsigned. On first launch, right-click → Open
       to bypass Gatekeeper.
