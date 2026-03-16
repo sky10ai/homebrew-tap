@@ -6,8 +6,8 @@ Homebrew tap for [sky10](https://github.com/sky10ai/sky10) — encrypted storage
 
 ```bash
 brew tap sky10ai/tap
-brew install sky10        # CLI only
-brew install cirrus       # macOS app (builds from source, requires Xcode)
+brew install sky10            # CLI
+brew install sky10-cirrus     # macOS app (builds from source, requires Xcode)
 ```
 
 ## Usage

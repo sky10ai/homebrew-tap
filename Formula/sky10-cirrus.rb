@@ -1,4 +1,4 @@
-class Cirrus < Formula
+class Sky10Cirrus < Formula
   desc "Encrypted file sync for macOS (builds from source)"
   homepage "https://github.com/sky10ai/sky10"
   url "https://github.com/sky10ai/sky10.git", tag: "v0.1.0"
