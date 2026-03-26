@@ -7,7 +7,7 @@ class Sky10 < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/sky10ai/sky10/releases/download/v0.17.3/sky10-darwin-arm64"
-      sha256 "7f3fe3679083d5a0a8b35c9dbca479f321fffbe36b568b9db4c8e3287cac984e"
+      sha256 "d2c57cbecf641aa8a5d526ec7b74710c2b38f7a0bb9c6d0361b61243163a9abd"
     else
       url "https://github.com/sky10ai/sky10/releases/download/v0.4.2/sky10-darwin-amd64"
       sha256 "af2c1f7a71150263828f9feec6dcc88ac4f147863ab66bb50239dbac3a9aa1b9"
