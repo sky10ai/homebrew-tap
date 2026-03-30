@@ -1,7 +1,7 @@
 class Sky10Cirrus < Formula
   desc "Encrypted file sync for macOS"
   homepage "https://github.com/sky10ai/sky10"
-  url "https://github.com/sky10ai/sky10.git", tag: "v0.21.0"
+  url "https://github.com/sky10ai/sky10.git", tag: "v0.21.1"
   license "Apache-2.0"
 
   depends_on "sky10ai/tap/sky10"
