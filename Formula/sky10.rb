@@ -1,13 +1,13 @@
 class Sky10 < Formula
   desc "Encrypted storage & agent coordination"
   homepage "https://github.com/sky10ai/sky10"
-  version "0.30.2"
+  version "0.30.3"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/sky10ai/sky10/releases/download/v0.30.2/sky10-darwin-arm64"
-      sha256 "bc3624d5107b103327ff6cfbcfb575872260510d9462bacd9313a9fc7516db55"
+      url "https://github.com/sky10ai/sky10/releases/download/v0.30.3/sky10-darwin-arm64"
+      sha256 "da9585f1ec1c3c521c4d0882d684c58661f357eaf26e91727b036a0a78f6ade7"
     end
   end
 
