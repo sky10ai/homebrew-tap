@@ -1,26 +1,26 @@
 class Sky10 < Formula
   desc "Encrypted storage & agent coordination"
   homepage "https://github.com/sky10ai/sky10"
-  version "0.31.2"
+  version "0.31.3"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/sky10ai/sky10/releases/download/v0.31.2/sky10-darwin-arm64"
-      sha256 "d65d07c1b0c4215f70ac19d2299f117d633297c27f81eb8fa07a365f8c1ecc70"
+      url "https://github.com/sky10ai/sky10/releases/download/v0.31.3/sky10-darwin-arm64"
+      sha256 "6d1d887ec1949810d69a66332ab715acb3a24eb1327248c2aec4614624adf21e"
     elsif Hardware::CPU.intel?
-      url "https://github.com/sky10ai/sky10/releases/download/v0.31.2/sky10-darwin-amd64"
-      sha256 "f8896e4c39804a1a360ac4917d9747c20b1f9defe308ade20c1ad2ce2a8308ed"
+      url "https://github.com/sky10ai/sky10/releases/download/v0.31.3/sky10-darwin-amd64"
+      sha256 "924080c98018c224b74e96f41718874485bdfc806143d4c0907f5c467e259adf"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/sky10ai/sky10/releases/download/v0.31.2/sky10-linux-arm64"
-      sha256 "bbf23839944074adee4e9890d72b35e90a1b4946026bdc55ac19b5d03e0eea3b"
+      url "https://github.com/sky10ai/sky10/releases/download/v0.31.3/sky10-linux-arm64"
+      sha256 "779868a9af433a3f4de7f1ce06f2de9a216e1e9d16c9812baa1718fcab805eca"
     elsif Hardware::CPU.intel?
-      url "https://github.com/sky10ai/sky10/releases/download/v0.31.2/sky10-linux-amd64"
-      sha256 "7db057927ed9dc02ae36b329b52a561c6beac5a0be346a89c5b1c49a83cb98ff"
+      url "https://github.com/sky10ai/sky10/releases/download/v0.31.3/sky10-linux-amd64"
+      sha256 "231cdae3cd63e94360ebe713c0554e8e5fced5688820fc20d58ee86db0823bd8"
     end
   end
 
